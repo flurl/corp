@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Corona registration for postgarage</title>
+    <meta name="description" content="Corona registration for postgarage">
+    <meta name="author" content="postgarage Graz">
+    <meta name="theme-color" content="#DDC392">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:image" content="images/icon-512.png">
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="corp.webmanifest">
+    <script src="app.js" defer></script>
+</head>
+
+<body>
+    <div id="success">
+        <img src="images/success.svg">
+    </div>
+    <header>
+        <button id="show_submission_form">Input</button><button id="show_visitors">Visitors</button>
+    </header>
+    <main>
+        <section id="submission">
+            <form action="" id="submission_form">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+                <label for="telephone">Telephone</label>
+                <input type="tel" id="telephone" name="telephone">
+                <label for="email">E-Mail</label>
+                <input type="email" id="email" name="email">
+                <button type="submit" id="save_button">Save</button>
+            </form>
+        </section>
+        <section id="visitors">
+            <button id="export_button">Export</button>
+            <table id="visitors_table"></table>
+            <button id="delete_data_button">Delete</button>
+        </section>
+    </main>
+</body>
+
+</html>

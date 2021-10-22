@@ -1,0 +1,53 @@
+body {
+    font-size: 30px;
+    font-family: sans-serif;
+}
+
+form>* {
+    display: block;
+    margin-bottom: 0.5em;
+    padding: 0.5em;
+    font-size: inherit;
+}
+
+button {
+    font-size: 30px;
+    padding: 0.5em;
+}
+
+header {
+    margin-bottom: 1em;
+}
+
+header>button {
+    margin-right: 0.5em;
+}
+
+#success {
+    display: none;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+}
+
+#success img {
+    width: 100%;
+    height: 100%;
+}
+
+#submission {}
+
+#visitors {
+    display: none;
+}
+
+#visitors_table {
+    border-collapse: collapse;
+    margin-bottom: 1em;
+}
+
+#visitors_table td {
+    padding: 0.25em;
+    border: 1px solid black;
+}
