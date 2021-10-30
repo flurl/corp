@@ -1,6 +1,10 @@
+const RETENTION_PERIOD_DAYS = 28;
+
 navigator.serviceWorker.register('sw.js');
 
 document.getElementById('export_button').addEventListener('click', download);
+
+document.getElementById('delete_expired_button').addEventListener('click', deleteExpired);
 
 document.getElementById('delete_data_button').addEventListener('click', deleteAllData);
 
@@ -120,6 +124,28 @@ function deleteAllData() {
             let tx = db.transaction("visitorsStore", "readwrite");
             let store = tx.objectStore("visitorsStore");
             let request = store.clear()
+            request.onsuccess = function (e) {
+                createVisitorsTable();
+            }
+            tx.oncomplete = function () {
+                db.close();
+            };
+        }
+    }
+}
+
+
+function deleteExpired() {
+    let d = new Date();
+    d.setDate(d.getDate() - RETENTION_PERIOD_DAYS);
+    if (confirm(`This deletes all visits since "${d.toISOString()}". Are you sure?`)) {
+        let open = indexedDB.open("corpDB");
+        open.onsuccess = function () {
+            let db = open.result;
+            let tx = db.transaction("visitorsStore", "readwrite");
+            let store = tx.objectStore("visitorsStore");
+            let range = IDBKeyRange.upperBound(d.getTime());
+            let request = store.delete(range);
             request.onsuccess = function (e) {
                 createVisitorsTable();
             }

@@ -1,4 +1,4 @@
-const cacheName = 'corp-v2';
+const cacheName = 'corp-v3';
 const contentToCache = [
     'index.html',
     'app.js',
